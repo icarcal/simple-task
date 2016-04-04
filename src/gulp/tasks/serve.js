@@ -8,4 +8,6 @@ module.exports = () => {
             baseDir: "./"
         }
     });
+
+    gulp.watch("*.html").on('change', browserSync.reload);
 }

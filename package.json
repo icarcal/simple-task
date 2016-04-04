@@ -8,10 +8,9 @@
     "postinstall": "gulp",
     "serve": "gulp serve"
   },
-  "repository" :
-  {
-    "type" : "git",
-    "url" : "https://github.com/icarcal/simple-task.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/icarcal/simple-task.git"
   },
   "keywords": [
     "simple",
@@ -24,12 +23,21 @@
     "browser-sync": "^2.11.2"
   },
   "dependencies": {
+    "angular": "^1.5.3",
     "browserify": "^13.0.0",
     "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.5.3",
+    "materialize-css": "^0.97.6",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
   },
   "gulp-config": {
-    "host": "simple-task.dev"
+    "host": "simple-task.dev",
+    "vendorCss": [
+      "./node_modules/materialize-css/dist/css/materialize.css"
+    ]
   }
 }
