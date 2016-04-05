@@ -10,4 +10,6 @@ module.exports = () => {
     });
 
     gulp.watch("*.html").on('change', browserSync.reload);
+    gulp.watch("src/stylus/*.styl", ['styles']);
+    gulp.watch("src/js/**/*.js", ['js-watch']).on('change',browserSync.reload);
 }

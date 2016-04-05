@@ -38,6 +38,10 @@
     "host": "simple-task.dev",
     "vendorCss": [
       "./node_modules/materialize-css/dist/css/materialize.css"
-    ]
+    ],
+    "vendorFonts": [
+      "./node_modules/materialize-css/dist/fonts/**/*"
+    ],
+    "buildDir": "./build"
   }
 }

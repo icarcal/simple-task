@@ -2,13 +2,25 @@
 <html>
 <head>
 	<title>Simple Task App</title>
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="build/css/vendor.css">
 </head>
-<body class="app">
+<body ng-app="app">
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo center">Simple Task App</a>
+		</div>
+	</nav>
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<label class="label">Simple Task App
+			<div class="col s12 center-align" ng-controller="TasksController as taks">
+				<div class="">
+					<h2>To Do ({{ tasks.todo.length || 0 }})</h2>
+				</div>
+  				<a class="center-align waves-effect waves-light btn"><i class="material-icons right">add</i>Add new task</a>
+				<div class="">
+					<h2>Done ({{ tasks.done.length || 0 }})</h2>
+				</div>
 			</div>
 		</div>
 	</div>

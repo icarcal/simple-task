@@ -1,7 +1,8 @@
+'use strict';
 var angular = require('angular');
 
-(function() {
-    'use strict';
+angular.module('app', []);
 
-	angular.module('app')
-})();
+require('./controllers');
+require('./models');
+require('./services');

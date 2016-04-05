@@ -6,7 +6,7 @@ var uglify = require('gulp-uglify');
 
 module.exports = () => {
 	var files = [
-		'./src/js/app.js'
+		'./src/js/app.js',
 	];
 
 	return browserify(files)
