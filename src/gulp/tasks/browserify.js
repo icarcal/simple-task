@@ -10,6 +10,7 @@ module.exports = () => {
 	];
 
 	return browserify(files)
+		.transform("babelify", {presets: ["es2015"]})
     	.bundle()
     	.pipe(source('app.js'))
     	.pipe(streamify(uglify()))

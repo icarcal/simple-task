@@ -1,9 +1,10 @@
 var gulp = require('./src/gulp/')([
-	'browserify',
 	// 'clean',
+	'browserify',
 	'fonts',
 	'styles',
+	'scripts',
 	'serve'
 ]);
 
-gulp.task('default', ['browserify', 'fonts','styles', 'serve']);
+gulp.task('default', ['scripts', 'fonts', 'styles', 'browserify', 'serve']);

@@ -1,8 +1,12 @@
-'use strict'
+'use strict';
 
 function TasksController($scope) {
-	var todo = [],
-		done = [];
+	let tasks = this;
+
+	tasks.todos = [
+		{title: 'Study', description: '- angular'}
+	];
+	tasks.dones = [];
 }
 
 module.exports = ['$scope', TasksController];
