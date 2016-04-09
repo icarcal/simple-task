@@ -1,7 +1,7 @@
 'use strict';
 
 function TasksController($scope) {
-	let tasks = this;
+	var tasks = this;
 
 	tasks.todos = [
 		{title: 'Study', description: '- angular'}
@@ -13,9 +13,10 @@ function TasksController($scope) {
 		tasks.adding = true;
 	};
 
-	tasks.save = function(task) {
-		tasks.todos.push(task)
+	tasks.save = function(todo) {
+		tasks.todos.push(angular.copy(todo));
 		tasks.adding = false;
+		delete $scope.newtask;
 	};
 
 	tasks.cancel = function() {
