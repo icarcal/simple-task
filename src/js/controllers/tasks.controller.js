@@ -16,7 +16,7 @@ function TasksController($scope) {
 	tasks.save = function(todo) {
 		tasks.todos.push(angular.copy(todo));
 		tasks.adding = false;
-		delete $scope.newtask;
+		delete $scope.todo;
 	};
 
 	tasks.cancel = function() {

@@ -32,26 +32,24 @@
 		<div class="row">
 			<div class="col m6 offset-m3 s12 center-align">
 		        <div class="input-field" ng-show="tasks.adding">
-					<input id="task-name" type="text" class="validate" ng-model="newtask.title">
+					<input id="task-name" type="text" class="validate" ng-model="todo.title">
 					<label for="task-name">Task Name</label>
 		        </div>
 
 		        <div class="input-field" ng-show="tasks.adding">
-					<textarea class="materialize-textarea" id="task-description" type="text" class="validate" ng-model="newtask.description"></textarea>
+					<textarea class="materialize-textarea" id="task-description" type="text" class="validate" ng-model="todo.description"></textarea>
 					<label for="task-description">Task Details</label>
 		        </div>
-
-		        {{todo}}
 		    </div>
   		</div>
 
   		<div class="row">
   			<div class="col m6 offset-m3 s12 center-align">
-				<a class="center-align waves-effect waves-light btn" ng-show="!tasks.adding" ng-click="tasks.addNew(newtask)">
+				<a class="center-align waves-effect waves-light btn" ng-show="!tasks.adding" ng-click="tasks.addNew()">
 					<i class="material-icons right">add</i>Add new task
 				</a>
 
-				<a class="center-align waves-effect waves-light btn" ng-show="tasks.adding" ng-click="tasks.save()">
+				<a class="center-align waves-effect waves-light btn" ng-show="tasks.adding" ng-click="tasks.save(todo)">
 					<i class="material-icons right">check_circle</i>Save
 				</a>
 
