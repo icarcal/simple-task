@@ -15,12 +15,14 @@
 		<div class="row">
 			<div class="col m6 offset-m3 s12 center-align">
 				<div class="task-to-do-title">
-					<h2>To Do ({{ tasks.todos.length || 0 }})</h2>
+					<h2>To Do ({{ tasks.todo().length || 0 }})</h2>
 
 					<div class="tasks-to-do">
 						<ul class="collection">
-							<li class="collection-item" ng-repeat="todo in tasks.todos">
-								{{ todo.title }}<i class="material-icons right-align">filter_drama</i>
+							<li class="collection-item" ng-repeat="todo in tasks.todo()">
+								{{ todo.title }}
+								<a href="" class="right" ng-click="tasks.complete(todo)"><i class="material-icons">check</i></a>
+								<a href="" class="right" ng-click="tasks.remove(todo)"><i class="material-icons">clear</i></a>
 							</li>
 						</ul>
 					</div>
@@ -31,12 +33,12 @@
 		<div class="row">
 			<div class="col m6 offset-m3 s12 center-align">
 		        <div class="input-field" ng-show="tasks.adding">
-					<input id="task-name" type="text" class="validate" ng-model="todo.title">
+					<input id="task-name" type="text" class="validate" ng-model="task.title">
 					<label for="task-name">Task Name</label>
 		        </div>
 
 		        <div class="input-field" ng-show="tasks.adding">
-					<textarea class="materialize-textarea" id="task-description" type="text" class="validate" ng-model="todo.description"></textarea>
+					<textarea class="materialize-textarea" id="task-description" type="text" class="validate" ng-model="task.description"></textarea>
 					<label for="task-description">Task Details</label>
 		        </div>
 		    </div>
@@ -48,7 +50,7 @@
 					<i class="material-icons right">add</i>Add new task
 				</a>
 
-				<a class="center-align waves-effect waves-light btn" ng-show="tasks.adding" ng-click="tasks.save(todo)">
+				<a class="center-align waves-effect waves-light btn" id="add-task" ng-show="tasks.adding" ng-click="tasks.save(task)" ng-class="(!task.title || !task.description) ? 'disabled' : ''">
 					<i class="material-icons right">check</i>Save
 				</a>
 
@@ -61,14 +63,14 @@
 		<div class="row">
 			<div class="col m6 offset-m3 s12 center-align">
 				<div class="task-done-title">
-					<h2>Done ({{ tasks.dones.length || 0 }})</h2>
+					<h2>Done ({{ tasks.done().length || 0 }})</h2>
 				</div>
 
 				<div class="tasks-done">
-					<ul class="collapsible popout" data-collapsible="accordion">
-						<li ng-repeat="done in tasks.done">
-							<div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ done.title }}</div>
-							<div class="collapsible-body"><p>{{ done.description }}</p></div>
+					<ul class="collection">
+						<li class="collection-item" ng-repeat="done in tasks.done()">
+							{{ done.title }}
+							<a href="" class="right" ng-click="tasks.remove(done)"><i class="material-icons">clear</i></a>
 						</li>
 					</ul>
 				</div>

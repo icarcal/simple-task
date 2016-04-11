@@ -7,3 +7,4 @@ angular.module('app', []);
 require('./controllers');
 require('./models');
 require('./services');
+require('./common.js');
