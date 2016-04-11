@@ -20,7 +20,8 @@ function TasksController($scope) {
 	vm.addNew = () => {
 		vm.adding = true;
 		setTimeout( () => {
-			document.getElementById('task-name').focus();
+			document.getElementById('task-date').focus();
+			document.getElementById('task-date').click();
 		}, 0);
 	};
 
@@ -49,7 +50,7 @@ function TasksController($scope) {
 
 	vm.validate = (task) => {
 		if(task) {
-			if(task.title === undefined || task.description === undefined) {
+			if(task.date === undefined || task.title === undefined || task.description === undefined) {
 				return false;
 			}
 

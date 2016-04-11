@@ -4,5 +4,16 @@ var clickEnterButton = (e) => {
 	}
 };
 
+$('.datepicker').pickadate({
+	selectMonths: true,
+	selectYears: 15,
+	format: 'dd/mm/yyyy',
+	onSet: function (ele) {
+	   if(ele.select){
+	        this.close();
+	   }
+	}
+});
+
 document.getElementById('task-name').addEventListener('keypress', clickEnterButton);
 document.getElementById('task-description').addEventListener('keypress', clickEnterButton);

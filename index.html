@@ -20,6 +20,7 @@
 					<div class="tasks-to-do">
 						<ul class="collection">
 							<li class="collection-item" ng-repeat="todo in tasks.todo()">
+								<span class="left">{{ todo.date }}</span>
 								{{ todo.title }}
 								<a href="" class="right" ng-click="tasks.complete(todo)"><i class="material-icons">check</i></a>
 								<a href="" class="right" ng-click="tasks.remove(todo)"><i class="material-icons">clear</i></a>
@@ -31,7 +32,12 @@
 		</div>
 
 		<div class="row">
-			<div class="col m6 offset-m3 s12 center-align">
+			<div class="col m6 offset-m3 s12">
+				<div class="input-field" ng-show="tasks.adding">
+			  		<input id="task-date" type="date" class="datepicker" ng-model="task.date">
+			  		<label for="task-date">Date</label>
+			  	</div>
+
 		        <div class="input-field" ng-show="tasks.adding">
 					<input id="task-name" type="text" class="validate" ng-model="task.title">
 					<label for="task-name">Task Name</label>
@@ -50,7 +56,7 @@
 					<i class="material-icons right">add</i>Add new task
 				</a>
 
-				<a class="center-align waves-effect waves-light btn" id="add-task" ng-show="tasks.adding" ng-click="tasks.save(task)" ng-class="(!task.title || !task.description) ? 'disabled' : ''">
+				<a class="center-align waves-effect waves-light btn" id="add-task" ng-show="tasks.adding" ng-click="tasks.save(task)" ng-class="(!task.date || !task.title || !task.description) ? 'disabled' : ''">
 					<i class="material-icons right">check</i>Save
 				</a>
 
@@ -69,6 +75,7 @@
 				<div class="tasks-done">
 					<ul class="collection">
 						<li class="collection-item" ng-repeat="done in tasks.done()">
+							{{ done.date }}
 							{{ done.title }}
 							<a href="" class="right" ng-click="tasks.remove(done)"><i class="material-icons">clear</i></a>
 						</li>
