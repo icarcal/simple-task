@@ -1,26 +1,26 @@
 'use strict';
 
 function TasksController($scope) {
-	var tasks = this;
+	var vm = this;
 
-	tasks.todos = [
+	vm.todos = [
 		{title: 'Study', description: '- angular'}
 	];
-	tasks.dones = [];
-	tasks.adding = false;
+	vm.dones = [];
+	vm.adding = false;
 
-	tasks.addNew = function() {
-		tasks.adding = true;
+	vm.addNew = function() {
+		vm.adding = true;
 	};
 
-	tasks.save = function(todo) {
-		tasks.todos.push(angular.copy(todo));
-		tasks.adding = false;
+	vm.save = function(todo) {
+		vm.todos.push(angular.copy(todo));
+		vm.adding = false;
 		delete $scope.todo;
 	};
 
-	tasks.cancel = function() {
-		tasks.adding = false;
+	vm.cancel = function() {
+		vm.adding = false;
 	};
 }
 
